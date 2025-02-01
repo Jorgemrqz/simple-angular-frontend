@@ -14,7 +14,7 @@ export class BookComponent implements OnInit {
   books: any[] = [];
   newTitle = '';
   newAuthor = '';
-
+  comments: { [key: string]: string } = {};
 
   constructor(private bookService: BookService) {}
   
@@ -50,6 +50,23 @@ export class BookComponent implements OnInit {
       );
     } else {
       alert('Por favor, completa todos los campos');
+    }
+  }
+
+  // Enviar comentario a un autor
+  sendComment(bookId: string): void {
+    if (this.comments[bookId]) {
+      this.bookService.sendComment(bookId, this.comments[bookId]).subscribe(
+        (response) => {
+          alert('Comentario enviado correctamente');
+          this.comments[bookId] = '';
+        },
+        (error) => {
+          console.error('Error al enviar comentario:', error);
+        }
+      );
+    } else {
+      alert('Por favor, escribe un comentario antes de enviarlo');
     }
   }
 }

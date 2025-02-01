@@ -1,48 +1,60 @@
 .container {
-    max-width: 600px;
-    margin: 20px auto;
-    font-family: Arial, sans-serif;
-  }
-  
-  h1 {
-    text-align: center;
-  }
-  
-  .form {
-    margin-bottom: 20px;
-  }
-  
-  input {
-    display: block;
-    margin: 5px 0;
-    padding: 10px;
-    width: calc(100% - 22px);
-  }
-  
-  button {
-    display: block;
-    margin: 10px 0;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  .list ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .list li {
-    background: #f4f4f4;
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  
+  max-width: 600px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.form {
+  margin-bottom: 20px;
+}
+
+input {
+  display: block;
+  margin: 5px 0;
+  padding: 10px;
+  width: calc(100% - 22px);
+}
+
+button {
+  display: block;
+  margin: 10px 0;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.list li {
+  background: #f4f4f4;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.comment-section {
+  margin-top: 10px;
+}
+
+.comment-section input {
+  width: 80%;
+  display: inline-block;
+}
+
+.comment-section button {
+  display: inline-block;
+}
