@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-book',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './book.component.html',
   styleUrl: './book.component.scss'
 })
@@ -14,6 +14,7 @@ export class BookComponent implements OnInit {
   books: any[] = [];
   newTitle = '';
   newAuthor = '';
+  newEmail = '';  // Nuevo campo para el correo electrónico
   comments: { [key: string]: string } = {};
 
   constructor(private bookService: BookService) {}
@@ -36,13 +37,14 @@ export class BookComponent implements OnInit {
 
   // Agregar un nuevo libro
   addBook(): void {
-    if (this.newTitle && this.newAuthor) {
-      this.bookService.addBook(this.newTitle, this.newAuthor).subscribe(
+    if (this.newTitle && this.newAuthor && this.newEmail) {  // Verificamos que el correo también esté presente
+      this.bookService.addBook(this.newTitle, this.newAuthor, this.newEmail).subscribe(
         (response) => {
           alert('Libro agregado correctamente');
           this.loadBooks(); // Recargar la lista de libros
           this.newTitle = '';
           this.newAuthor = '';
+          this.newEmail = '';  // Limpiar el campo de correo
         },
         (error) => {
           console.error('Error al agregar libro:', error);
