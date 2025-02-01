@@ -21,8 +21,9 @@ export class BookService {
     return this.http.post<any>(this.apiUrl, { title, author, email });
   }
 
-  // Enviar comentario al autor
-  sendComment(title: string, comment: string): Observable<any> {
+   // Enviar comentario al autor
+   sendComment(title: string, comment: string): Observable<any> {
     return this.http.post<any>(this.commentUrl, { title, comment });
   }
+  
 }

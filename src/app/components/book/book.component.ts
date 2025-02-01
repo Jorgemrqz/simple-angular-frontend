@@ -58,15 +58,22 @@ export class BookComponent implements OnInit {
   // Enviar comentario a un autor
   sendComment(bookId: string): void {
     if (this.comments[bookId]) {
-      this.bookService.sendComment(bookId, this.comments[bookId]).subscribe(
-        (response) => {
-          alert('Comentario enviado correctamente');
-          this.comments[bookId] = '';
-        },
-        (error) => {
-          console.error('Error al enviar comentario:', error);
-        }
-      );
+      const book = this.books.find(b => b.id === bookId);
+      const email = book ? book.email : '';  // Asegúrate de que el correo esté presente en los datos del libro
+  
+      if (email) {
+        this.bookService.sendComment(book.title, this.comments[bookId]).subscribe(
+          (response) => {
+            alert('Comentario enviado correctamente');
+            this.comments[bookId] = '';
+          },
+          (error) => {
+            console.error('Error al enviar comentario:', error);
+          }
+        );
+      } else {
+        alert('No se encontró el correo del autor');
+      }
     } else {
       alert('Por favor, escribe un comentario antes de enviarlo');
     }
